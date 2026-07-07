@@ -1,6 +1,5 @@
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
 
-// We hardcode our logged-in student user for this take-home slice
 const DEFAULT_HEADERS = {
   'Content-Type': 'application/json',
   'x-user-id': 'student-1',
