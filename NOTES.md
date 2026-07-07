@@ -15,6 +15,11 @@ Hydrated flags (`hasSaved`, `savesCount`) are computed directly within the SQL q
 ### Pure Business Logic Separation
 State transitions (determining whether to insert, reactivate, soft-delete, or no-op) live in `/domain/bookmark.logic.ts`. This file has zero dependencies on Drizzle ORM or HTTP headers, making our core business rules 100% testable in sub-millisecond execution times without requiring database mocking or network I/O.
 
+### Production Monorepo Deployment Architecture
+Rather than confining the application to a local-only Docker environment, I configured a distributed cloud deployment:
+* **Frontend on Vercel:** Leverages native Next.js 15 App Router optimizations, edge caching, and automatic workspace package tracing (`@forum/shared`).
+* **Backend & DB on Render:** Host our persistent PostgreSQL database and Bun runtime. By utilizing `--cwd apps/api` during the build step, Render executes Drizzle database schema pushes and seeding scripts natively during deployment while maintaining full monorepo type-safety.
+
 ---
 
 ## 2. Client State & Optimistic UI

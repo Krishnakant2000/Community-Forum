@@ -2,6 +2,14 @@
 
 A complete full-stack feature slice implementing a discussion feed with idempotent, history-preserving bookmarks and optimistic UI caching.
 
+## Live Demo & Production Deployment
+This monorepo is fully deployed and runnable in production:
+* **Frontend (Next.js 15 UI):** https://community-forum-web-two.vercel.app/
+* **Backend API (Elysia + Bun):** https://community-forum-fnly.onrender.com/api/health
+* **Database:** Managed PostgreSQL hosted on Render.
+
+> **Note:** The backend is hosted on Render's free tier, which spins down after periods of inactivity. If the feed takes a few seconds to load on your very first click, it's just the Bun runtime waking up!
+
 ## Tech Stack
 * **Runtime & Workspaces:** Bun (Monorepo with `apps/api`, `apps/web`, and `packages/shared`)
 * **API Layer:** Elysia (TypeScript strict mode)
