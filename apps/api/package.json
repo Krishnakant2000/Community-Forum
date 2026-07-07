@@ -7,11 +7,13 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
+    "db:seed": "bun run src/db/seed.ts",
     "test": "vitest"
   },
   "dependencies": {
     "@elysiajs/cors": "^1.1.0",
     "@forum/shared": "workspace:*",
+    "dotenv": "^17.4.2",
     "drizzle-orm": "^0.36.0",
     "elysia": "^1.1.0",
     "postgres": "^3.4.5"
